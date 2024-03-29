@@ -114,21 +114,21 @@
         const password = document.getElementById('floatingPassword').value;
     
         // Prepare data as FormData or a plain object
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('password', password);
+        // const formData = new FormData();
+        // formData.append('name', name);
+        // formData.append('email', email);
+        // formData.append('password', password);
     
         // Alternatively, use a plain object
-        // const data = {
-        //   name: name,
-        //   email: email,
-        //   password: password,
-        // };
+        const data = {
+          email: email,
+          password: password,
+          full_name: name,
+        };
     
         fetch('https://v1-default--production-omaralvrz.sierranegra.cloud/users/', {
           method: 'POST',
-          body: formData, // Or use 'body: JSON.stringify(data)' for plain object
+          body: JSON.stringify(data), // Or use 'body: formData' for FormData
         })
           .then(response => response.json()) // Parse the response as JSON
           .then(data => {
