@@ -1,2 +1,0 @@
-# RegistroLoginBilletAI
-Hola mundo
