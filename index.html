@@ -127,15 +127,29 @@
             'Content-Type': 'application/json'
             }
         })
-          .then(response => response.json()) // Parse the response as JSON
-          .then(data => {
-            console.log('Success:', data);
-            // Handle successful registration response here (e.g., redirect)
-          })
-          .catch(error => {
-            console.error('Error:', error);
-            // Handle registration errors here (e.g., display error message)
-          });
+        .then(response => {
+          if (!response.ok) {
+              if (response.status === 400) {
+                  throw new Error('Correo electrónico ya registrado');
+              } else {
+                  throw new Error('Error en la solicitud');
+              }
+          }
+          return response.json();
+      })
+        .then(data => {
+          console.log('Success:', data);
+          // Handle successful registration response here (e.g., redirect)
+          // Show success alert with green check emoji
+          alert("¡Registrado con éxito! \u2705");
+          // Redirect to login page
+          window.location.href = "login.html";
+      })
+        .catch(error => {
+          console.error('Error:', error);
+          // Handle registration errors here (e.g., display error message)
+          alert("Error: " + error.message);
+      });
       });
     </script>
   </body>
