@@ -130,9 +130,9 @@
         .then(response => {
           if (!response.ok) {
               if (response.status === 400) {
-                  throw new Error('Correo electrónico ya registrado');
+                  throw new Error('Correo electrónico ya registrado');//si hay una bad request (400) es porque el correo ya esta registrado
               } else {
-                  throw new Error('Error en la solicitud');
+                  throw new Error('Error en la solicitud');//cualquier otro error 
               }
           }
           return response.json();
@@ -140,7 +140,6 @@
         .then(data => {
           console.log('Success:', data);
           // Handle successful registration response here (e.g., redirect)
-          // Show success alert with green check emoji
           alert("¡Registrado con éxito! \u2705");
           // Redirect to login page
           window.location.href = "login.html";
