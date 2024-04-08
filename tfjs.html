@@ -80,12 +80,15 @@
         }
       }
     }
-    async function flipCamera() {
+    // Function to flip the camera mode (front/back)
+async function flipCamera() {
   if (facingMode === "user") {
     facingMode = "environment"; // switch to back camera
   } else {
     facingMode = "user"; // switch to front camera
   }
+  await webcam.flip();
+  webcam.stop();
   await webcam.setup({ facingMode: facingMode });
   await webcam.play();
 }
