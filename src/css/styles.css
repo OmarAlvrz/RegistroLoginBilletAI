@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #171941;
+  background-image: radial-gradient(circle, #cccccc42 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Scanner box styles */
+.scanner-box {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background: rgba(28, 28, 28, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+}
+
+.scanner-box h2 {
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Webcam container - centered and properly sized */
+.webcam-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.webcam-container canvas {
+  display: block !important;
+  margin: 0 auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+}
+
+/* Label container - more visible and always present */
+.label-container {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  z-index: 100; /* Increased z-index */
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7); /* Added background */
+  border-radius: 8px;
+  margin: 0 10px;
+  min-height: 80px; /* Ensure minimum height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Make sure the webcam container has enough space for the label */
+.webcam-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: visible; /* Changed from hidden to visible */
+  margin: 0 auto;
+  padding-bottom: 100px; /* Add space for the label */
+}
+
+/* Colorful buttons */
+.btn-primary {
+  background: linear-gradient(45deg, #ba54f5, #e14eca);
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  background: linear-gradient(45deg, #2dce89, #11cdef);
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* Background animation */
+@keyframes move-left-right {
+  0% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+.index-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.index-page .squares {
+  background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
+  position: absolute;
+  transition: 0.5s ease-out;
+  overflow: hidden;
+  border-radius: 20%;
+  z-index: -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .scanner-box {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  .webcam-container {
+    height: 50vh;
+  }
+  
+  .label-container {
+    font-size: 2rem;
+  }
+}
